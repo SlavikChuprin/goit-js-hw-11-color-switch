@@ -14,6 +14,8 @@ btnStart: document.querySelector('button[data-action="start"]'),
 btnStop: document.querySelector('button[data-action="stop"]'),
 };
 
+
+
 ref.btnStart.addEventListener('click', changedBgBody);
 ref.btnStop.addEventListener('click', stopChangedBgBody);
 
@@ -23,13 +25,15 @@ function  randomIntegerFromInterval(min, max)  {
 };
 
 
-
-function changedBgBody() {   
-   ID = setInterval( ()=> ref.body.style.backgroundColor = colors[randomIntegerFromInterval(0, colors.length)], 1000);
-
+function  changedBgBody() {   
+   ID = setInterval(()=> ref.body.style.backgroundColor = colors[randomIntegerFromInterval(0, colors.length)], 1000);
+   ref.btnStart.removeEventListener('click',changedBgBody);
+   ref.btnStart.style.opacity = '50%';
 };
 
 function stopChangedBgBody(){
 
     clearInterval(ID);
+    ref.btnStart.addEventListener('click', changedBgBody);
+    ref.btnStart.style.opacity = '100%';
 }
