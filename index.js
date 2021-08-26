@@ -26,9 +26,12 @@ function  randomIntegerFromInterval(min, max)  {
 
 
 function  changedBgBody() {   
-   ID = setInterval(()=> ref.body.style.backgroundColor = colors[randomIntegerFromInterval(0, colors.length)], 1000);
+  
+   ID = setInterval(()=>ref.body.style.backgroundColor = colors[randomIntegerFromInterval(0, colors.length)] , 1000);
    ref.btnStart.removeEventListener('click',changedBgBody);
    ref.btnStart.style.opacity = '50%';
+    
+   
 };
 
 function stopChangedBgBody(){
